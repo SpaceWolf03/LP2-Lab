@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<body>
+	<h2> Chat Bot </h2>
+	
+	Enter Query:
+	<input type = "text" id = "chat" name = "chat">
+	<button onclick="reply()"> Send </button>
+	<p id = "ans"></p>
+	
+	<script>
+		function reply(){
+			let ans = "";
+			let chat = document.getElementById("chat").value;
+			
+			if (chat.includes("hello") || chat.includes("hi")){
+				ans = "Hello user!";}
+			else if (chat.includes("price")){
+				ans = "The price is 200/- per unit";}
+			else if (chat.includes("delivery")){
+				ans = "The delivery is done anywhere in India in 3 days";}
+			else {
+				ans = "Sorry, didnt get you..";}			
+
+			document.getElementById("ans").innerHTML = "Bot: " + ans;
+		}
+	</script>
+
+</body>
+</html>
