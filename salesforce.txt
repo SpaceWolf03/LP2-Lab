@@ -1,0 +1,136 @@
+Salesforce Practical Flow
+1. Login
+https://login.salesforce.com
+
+Developer org login.
+
+2. Create custom object
+
+Setup → Object Manager → Create → Custom Object
+
+Example:
+
+Student
+Employee
+Bank Account
+Product
+3. Create fields
+
+Object → Fields & Relationships → New
+
+Types:
+
+Text
+Number
+Email
+Date
+Picklist
+
+Examples:
+
+Roll_no__c
+Salary__c
+Email__c
+Joining_Date__c
+Dept__c
+4. Apex class
+
+Setup → Apex Classes → New
+
+CRUD examples:
+
+insert s;
+update s;
+delete s;
+
+SOQL:
+
+SELECT Name FROM Student__c
+5. Visualforce page
+
+Setup → Visualforce Pages → New
+
+Basic:
+
+<apex:page controller="StudentManagementSystem">
+<apex:form>
+...
+</apex:form>
+</apex:page>
+
+Preview to run.
+
+6. Validation rules
+
+Object → Validation Rules → New
+
+Examples:
+
+Name:
+
+LEN(Name) < 3
+
+ID:
+
+Employee_ID__c <= 0
+
+Salary:
+
+OR(
+ Salary__c <= 10000,
+ Salary__c >= 500000
+)
+
+Date:
+
+Joining_Date__c > TODAY()
+
+Blank:
+
+ISBLANK(Dept__c)
+
+Email:
+
+NOT(CONTAINS(Email__c,"@"))
+7. Unique field
+
+Field → Edit
+
+Check:
+
+Unique
+8. Run email Apex
+
+Developer Console:
+
+Debug → Execute Anonymous
+
+Run:
+
+EmailSender.sendMail();
+9. Lightning app
+
+Setup → App Manager → New Lightning App
+
+or
+
+Lightning App Builder
+10. Custom object tab
+
+Setup → Tabs → New Custom Object Tab
+
+Needed if object not visible.
+
+11. Test records
+
+App Launcher:
+
+Students
+Employees
+Employee02
+
+Click:
+
+New
+
+Test validations.

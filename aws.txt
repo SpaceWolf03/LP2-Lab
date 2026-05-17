@@ -1,0 +1,67 @@
+AWS Practical Flow
+1. Create EC2
+
+AWS Console → EC2 → Launch Instance
+
+Choose:
+
+Ubuntu
+t2.micro
+key pair create/download
+allow SSH
+allow HTTP if website
+
+Launch.
+
+2. Connect
+ssh -i awskey.pem ubuntu@PUBLIC_IP
+3. Update/install
+sudo apt update
+sudo apt install apache2 -y
+sudo apt install nodejs npm git -y
+4. Static website
+sudo nano /var/www/html/index.html
+
+Paste HTML.
+
+Open:
+
+http://PUBLIC_IP
+5. Start/stop Apache
+sudo systemctl start apache2
+sudo systemctl status apache2
+
+
+
+
+6. File transfer between VMs
+
+From laptop to VM1:
+
+scp -i awskey.pem awskey.pem ubuntu@VM1_PUBLIC_IP:/home/ubuntu/
+
+Inside VM1:
+
+chmod 400 awskey.pem
+echo "hello" > file.txt
+scp -i awskey.pem file.txt ubuntu@VM2_PRIVATE_IP:/home/ubuntu/
+
+
+7. Clone project
+git clone REPO_URL
+cd project
+8. MERN / Node deploy
+npm install
+npm start
+npm run build
+9. Open ports
+
+Security Group inbound:
+
+22 SSH
+80 HTTP
+3000 / 5000 / 5004 custom TCP
+10. Check running processes
+ps aux | grep node
+11. Exit SSH
+exit
